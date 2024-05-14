@@ -5,18 +5,27 @@ import { path } from "../../ultils/constant";
 
 const Header = () => {
   const navigate = useNavigate();
+  // Home
+  const home = useCallback(() => {
+    navigate(path.home);
+  }, [navigate]);
   // Login
   const login = useCallback(() => {
     navigate(path.login);
   }, [navigate]);
+  // Register
+  const register = useCallback(() => {
+    navigate(path.register);
+  }, [navigate]);
 
   return (
-    <div className="h-[60px] flex items-center bg-white justify-between px-4 drop-shadow-sm">
+    <div className="h-[60px] w-screen flex items-center bg-white justify-between px-8 drop-shadow-lg">
       <div className="flex items-center justify-between gap-10">
         <img
           src="https://cdn6.agoda.net/images/kite-js/logo/agoda/color-default.svg"
           alt="logo"
-          className="w-[89px] h-[37px] object-contain"
+          onClick={home}
+          className="w-[89px] h-[37px] object-contain cursor-pointer"
         />
         <Navbar />
       </div>
@@ -24,6 +33,7 @@ const Header = () => {
       <div className="flex items-center gap-5">
         <Button
           text="Tạo tài khoản"
+          onClick={register}
           textColor="text-[#5392f9]"
           outline="outline-[#5392f9]"
           hoverBg="hover:bg-[#5392f9]"

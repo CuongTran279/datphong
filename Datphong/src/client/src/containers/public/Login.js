@@ -1,14 +1,10 @@
 import React from "react";
-import Header from "./Header";
 import { Button } from "../../components";
 import { InputForm } from "../../components";
 
 const Login = () => {
   return (
     <div className="h-screen">
-      <div className="h-[60px] px-2">
-        <Header />
-      </div>
       <div className="w-1124 m-auto h-full flex justify-center flex-row">
         <div className="mt-[130px] w-[500px] h-[400px] bg-white drop-shadow-xl py-10 px-5 font-sans">
           <div>

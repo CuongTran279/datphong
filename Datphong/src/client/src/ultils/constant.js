@@ -1,4 +1,5 @@
 export const path = {
-    home: '/*',
-    login: '/login'
+    home: '/',
+    login: 'login',
+    register: 'register'
 }
