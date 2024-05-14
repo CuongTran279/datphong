@@ -1,18 +1,21 @@
 import React from "react";
 import NumericInput from 'react-numeric-input';
 import { Button } from '../../components';
+import icons from "../../ultils/icons";
+const {CiSearch} = icons;
 
 const FormSearch = () => {
   return (
-    <div className="h-[300px] w-1124 rounded-xl drop-shadow-3xl bg-white absolute top-[250px] flex justify-center flex-col px-14">
+    <div className="h-[300px] w-1124 rounded-xl drop-shadow-xl bg-white absolute top-[250px] flex justify-center flex-col px-14">
       <div className="mt-2">
         <h2 className="font-medium text-base">Tìm kiếm phòng</h2>
       </div>
-      <div className="mt-2">
+      <div className="mt-2 flex items-center">
+        <CiSearch className="ml-3 text-3xl"/>
         <input
           type="text"
           placeholder="Nhập điểm du lịch và khách sạn"
-          className="h-[66px] w-[1028px] outline-none rounded-md border border-[#dddfe2] p-5 "
+          className="h-[66px] w-[1028px] outline-none  border-b-[1px] focus:border-b-[#5392f9] p-5"
         />
       </div>
       <div className="mt-10 flex flex-row gap-5 justify-between">
@@ -20,14 +23,14 @@ const FormSearch = () => {
           <label for="">Ngày đến</label>
           <input
             type="date"
-            className="outline-none border border-[#dddfe2] rounded-md p-5"
+            className="outline-none border border-[#dddfe2] rounded-md p-5 focus:drop-shadow-blue "
           />
         </div>
         <div className="flex flex-col gap-2">
           <label for="">Ngày đi</label>
           <input
             type="date"
-            className="outline-none border border-[#dddfe2] rounded-md p-5"
+            className="outline-none border border-[#dddfe2] rounded-md p-5 focus:drop-shadow-blue"
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -37,7 +40,7 @@ const FormSearch = () => {
             max={100}
             step={1}
             value={1}
-            className="outline-none border border-[#dddfe2] rounded-md p-5"
+            className="outline-none border border-[#dddfe2] rounded-md p-5 focus:drop-shadow-blue"
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -47,7 +50,7 @@ const FormSearch = () => {
             max={100}
             step={1}
             value={1}
-            className="outline-none border border-[#dddfe2] rounded-md p-5"
+            className="outline-none border border-[#dddfe2] rounded-md p-5 focus:drop-shadow-blue"
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -57,7 +60,7 @@ const FormSearch = () => {
             max={100}
             step={1}
             value={0}
-            className="outline-none border border-[#dddfe2] rounded-md p-5"
+            className="outline-none border border-[#dddfe2] rounded-md p-5 focus:drop-shadow-blue"
           />
         </div>
       </div>
