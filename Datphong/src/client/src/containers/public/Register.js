@@ -5,7 +5,7 @@ const Register = () => {
   return (
     <div className="h-screen">
       <div className="w-1124 m-auto h-full flex justify-center flex-row">
-        <div className="mt-[130px] w-[500px] h-[550px] bg-white drop-shadow-xl py-10 px-5 font-sans">
+        <div className="mt-[130px] w-[500px] h-[650px] bg-white drop-shadow-xl py-10 px-5 font-sans">
           <div>
             <h1 className="font-semibold text-2xl">Đăng Ký</h1>
           </div>
@@ -17,6 +17,16 @@ const Register = () => {
             />
             <InputForm
               text="Tên đăng nhập"
+              type="text"
+              dropShadow="focus:drop-shadow-blue"
+            />
+            <InputForm
+              text="Địa chỉ"
+              type="text"
+              dropShadow="focus:drop-shadow-blue"
+            />
+            <InputForm
+              text="SĐT"
               type="text"
               dropShadow="focus:drop-shadow-blue"
             />

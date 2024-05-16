@@ -11,8 +11,11 @@ const MainContent = () => {
             'url("https://cdn6.agoda.net/images/MVC/default/background_image/illustrations/bg-agoda-homepage.png")',
         }}
       ></div>
-      <div className="w-1124 m-auto h-full border flex justify-center flex-row">
+      <div className="w-1124 m-auto h-full flex justify-center flex-row">
         <FormSearch />
+      </div>
+      <div className="mt-20 w-1124 m-auto h-full flex justify-center flex-row">
+        agsgasg
       </div>
     </div>
   );

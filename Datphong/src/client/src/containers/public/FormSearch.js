@@ -6,7 +6,7 @@ const {CiSearch} = icons;
 
 const FormSearch = () => {
   return (
-    <div className="h-[300px] w-1124 rounded-xl drop-shadow-xl bg-white absolute top-[250px] flex justify-center flex-col px-14">
+    <div className="h-[300px] w-1124 rounded-xl drop-shadow-xl bg-white flex justify-center flex-col px-14 mt-[-100px]">
       <div className="mt-2">
         <h2 className="font-medium text-base">Tìm kiếm phòng</h2>
       </div>
@@ -15,7 +15,7 @@ const FormSearch = () => {
         <input
           type="text"
           placeholder="Nhập điểm du lịch và khách sạn"
-          className="h-[66px] w-[1028px] outline-none  border-b-[1px] focus:border-b-[#5392f9] p-5"
+          className="h-[66px] w-[1150px] outline-none  border-b-[1px] focus:border-b-[#5392f9] p-5"
         />
       </div>
       <div className="mt-10 flex flex-row gap-5 justify-between">
@@ -40,6 +40,7 @@ const FormSearch = () => {
             max={100}
             step={1}
             value={1}
+            type="number"
             className="outline-none border border-[#dddfe2] rounded-md p-5 focus:drop-shadow-blue"
           />
         </div>
