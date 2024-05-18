@@ -9,13 +9,9 @@ const Header = () => {
   const home = useCallback(() => {
     navigate(path.home);
   }, [navigate]);
-  // Login
-  const login = useCallback(() => {
-    navigate(path.login);
-  }, [navigate]);
-  // Register
-  const register = useCallback(() => {
-    navigate(path.register);
+  // Login, register
+  const login = useCallback((flag) => {
+    navigate( path.login, { state: { flag } });
   }, [navigate]);
 
   return (
@@ -33,7 +29,7 @@ const Header = () => {
       <div className="flex items-center gap-5">
         <Button
           text="Tạo tài khoản"
-          onClick={register}
+          onClick={()=>login(true)}
           textColor="text-[#5392f9]"
           outline="outline-[#5392f9]"
           hoverBg="hover:bg-[#5392f9]"
@@ -41,7 +37,7 @@ const Header = () => {
         />
         <Button
           text="Đăng nhập"
-          onClick={login}
+          onClick={()=>login(false)}
           textColor="text-[#ff567d]"
           outline="outline-[#ff567d]"
           hoverBg="hover:bg-[#ff567d]"

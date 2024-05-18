@@ -17,3 +17,21 @@ export const register = async (req,res) =>{
         })
     }
 }
+
+export const login = async (req,res) =>{
+    const {name,pass} = req.body;
+    try {
+        if(!name || !pass ) return res.status(400).json({
+            err: 1,
+            msg: 'Vui lòng nhập đầy đủ thông tin: '
+        })
+        const respone = await authService.loginService(req.body);
+        return res.status(200).json(respone)
+
+    } catch (error) {
+        return res.status(500).json({
+            err: -1,
+            msg: 'Fail at authController: ' + error
+        })
+    }
+}
