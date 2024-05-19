@@ -1,9 +1,25 @@
 import React, {useState,useEffect} from "react";
 import { Button,InputForm } from "../../components";
-import { useLocation  } from 'react-router-dom'
+import { useLocation  } from 'react-router-dom';
+import { apiRegister } from "../../services/auth";
+import * as action from '../../store/actions';
+import {useDispatch} from 'react-redux';
+
 const Login = () => {
   const location = useLocation ();
+  const dispatch = useDispatch();
   const  [isRegister,setRegister] = useState(location.state?.flag);
+  const [payload,setPayload] = useState({
+    phone: '',
+    pass:'',
+    name:'',
+    address:'',
+    email:'',
+  })
+  const handleSubmit = async ()=>{
+    dispatch(action.register(payload))
+    console.log(payload);
+  }
   useEffect(()=>{
     setRegister(location.state?.flag)
   },[location.state?.flag])
@@ -17,41 +33,44 @@ const Login = () => {
           {isRegister && 
             <InputForm
               text="Email"
-              type="email"
               dropShadow="focus:drop-shadow-blue"
+              value={payload.email}
+              setValue={setPayload}
+              type={'email'}
             /> 
           }
           {isRegister && 
             <InputForm
             text="Địa chỉ"
-            type="text"
             dropShadow="focus:drop-shadow-blue"
+            value={payload.address}
+            setValue={setPayload}
+            type={'address'}
           />
           }
           {isRegister && 
             <InputForm
             text="SĐT"
-            type="text"
             dropShadow="focus:drop-shadow-blue"
+            value={payload.phone}
+            setValue={setPayload}
+            type={'phone'}
           />
           }
             <InputForm
               text="Tên đăng nhập"
-              type="text"
+              type={'name'}
               dropShadow="focus:drop-shadow-blue"
+              value={payload.name}
+              setValue={setPayload}
             />
             <InputForm
               text="Mật khẩu"
-              type="text"
+              type={'pass'}
               dropShadow="focus:drop-shadow-blue"
+              value={payload.pass}
+              setValue={setPayload}
             />
-            {isRegister && 
-              <InputForm
-              text="Nhập lại mật khẩu"
-              type="text"
-              dropShadow="focus:drop-shadow-blue"
-            />
-            }
             <div className="mt-5 flex flex-col">
               <Button
                 text={isRegister ? "Đăng ký" : "Đăng nhập"}
@@ -59,6 +78,7 @@ const Login = () => {
                 outline="outline-[#5392f9]"
                 hoverBg="hover:bg-[#5392f9]"
                 hoverText="hover:text-white"
+                onClick={handleSubmit}
               />
             </div>
             <div className="mt-5 flex flex-row justify-between">
