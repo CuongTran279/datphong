@@ -5,11 +5,14 @@ const instance = axios.create({
 })
 
 instance.interceptors.request.use(function(config){
-    const token = localStorage.getItem('persist:auth');
-    console.log(token);
     return config;
 },function(error){
-    console.log(error);
+    return Promise.reject(error)
+})
+
+instance.interceptors.response.use(function(respone){
+    return respone;
+},function(error){
     return Promise.reject(error)
 })
 

@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from "react";
 import { Button,InputForm } from "../../components";
 import { useLocation  } from 'react-router-dom';
+// eslint-disable-next-line
 import { apiRegister } from "../../services/auth";
 import * as action from '../../store/actions';
 import {useDispatch} from 'react-redux';
@@ -17,7 +18,7 @@ const Login = () => {
     email:'',
   })
   const handleSubmit = async ()=>{
-    dispatch(action.register(payload))
+    isRegister ?  dispatch(action.register(payload)) : dispatch(action.login(payload));
     console.log(payload);
   }
   useEffect(()=>{
