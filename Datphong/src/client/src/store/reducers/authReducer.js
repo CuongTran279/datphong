@@ -1,38 +1,49 @@
-import actionTypes from "../actions/actionTypes";
-const  initState = {
+import actionTypes from '../actions/actionTypes';
+const initState = {
     isLoggedIn: false,
-    token:null,
-    msg: ''
-}
+    isRegisted: false,
+    token: null,
+    msg: '',
+};
 
-const authReducer = (state = initState,action)=>{
-    switch(action.type){
+const authReducer = (state = initState, action) => {
+    switch (action.type) {
         case actionTypes.REGISTER_SUCCESS:
+            return {
+                ...state,
+                isLoggedIn: false,
+                isRegisted: true,
+                token: action.data,
+                msg: '',
+            };
         case actionTypes.LOGIN_SUCCESS:
-            return{
+            return {
                 ...state,
                 isLoggedIn: true,
+                isRegisted: false,
                 token: action.data,
-                msg:''
-            }
+                msg: '',
+            };
         case actionTypes.REGISTER_FAIL:
         case actionTypes.LOGIN_FAIL:
-            return{
+            return {
                 ...state,
                 isLoggedIn: false,
+                isRegisted: false,
                 msg: action.data,
-                token: ''
-            }
+                token: '',
+            };
         case actionTypes.LOGOUT:
-            return{
+            return {
                 ...state,
                 isLoggedIn: false,
+                isRegisted: false,
                 token: null,
-                msg: ''
-            }
+                msg: '',
+            };
         default:
             return state;
     }
-}
+};
 
-export default authReducer
+export default authReducer;
